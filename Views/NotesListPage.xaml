@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesApp.Views.NotesListPage"
+             Title="MvvM Notes">
+    <StackLayout>
+        <StackLayout>
+            <ListView x:Name="booksList" ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote, Mode=TwoWay}" HasUnevenRows="True">
+                <ListView.ItemTemplate Width="100">
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" FontSize="Medium"/>
+                                    <Label Text="{Binding TextNote}" FontSize="Small"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout>
+            <Button Text="Добавить" Command="{Binding CreateNoteCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="150" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
